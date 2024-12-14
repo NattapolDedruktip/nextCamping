@@ -4,6 +4,8 @@ import { SubmitButton } from "@/components/form/Button"
 import FormContainer from "@/components/form/FormContainer"
 import { createLandmarkAction } from "@/actions/actions"
 import CategoryInput from "@/components/form/CategoryInput"
+import TextAreaInput from "@/components/form/TextAreaInput"
+import ProvincesInput from "@/components/form/ProvincesInput"
 
 
 
@@ -12,7 +14,7 @@ const CreateLandmark = async () => {
 
 
     return (
-        <section>
+        <section className="w-3/5 mx-auto">
             <h1 className="text-2xl font-semibold mb-8 capitalize">Create Landmark</h1>
             <div className="border p-8 rounded-md ">
 
@@ -22,12 +24,29 @@ const CreateLandmark = async () => {
                             label="Landmark Name"
                             type="text"
                             placeholder="Landmark Name..." />
-                    </div>
-
-                    {/* category  */}
-                    <div>
+                        {/* category  */}
                         <CategoryInput />
                     </div>
+
+
+
+                    {/* text area */}
+                    <div >
+                        <TextAreaInput name="Description" />
+                    </div>
+
+                    {/* price */}
+                    <div className="grid md:grid-cols-2 gap-4 mt-4">
+                        <FormInput name='price'
+                            label="Price"
+                            type="text"
+                            placeholder="Price..." />
+
+                        {/* province input */}
+                        <ProvincesInput />
+                    </div >
+
+
                     <SubmitButton text='Create Landmark' size='lg' />
                 </FormContainer>
 

@@ -7,16 +7,15 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-import { categories } from "@/utils/categories"
+import { provinces } from "@/utils/provinces"
 
-
-const CategoryInput = ({ defaultValue }: { defaultValue?: string }) => {
-    const name = 'category'
+const ProvincesInput = ({ defaultValue }: { defaultValue?: string }) => {
+    const name = 'province'
     return (
         <div className="mb-2">
             <Label htmlFor={name} className="capitalize"> {name}</Label>
             <Select
-                defaultValue={defaultValue || categories[0].label}
+                defaultValue={defaultValue || provinces[0].PROVINCE_NAME}
                 name={name}
                 required
             >
@@ -25,9 +24,9 @@ const CategoryInput = ({ defaultValue }: { defaultValue?: string }) => {
                 </SelectTrigger>
                 <SelectContent>
                     {
-                        categories.map((item, index) => {
-                            return <SelectItem value={item.label} key={index}>
-                                <span className="capitalize flex items-center gap-4"><item.icon />{item.label}</span>
+                        provinces.map((item, index) => {
+                            return <SelectItem value={item.PROVINCE_NAME} key={index}>
+                                <span className="capitalize flex items-center gap-4">{item.PROVINCE_NAME}</span>
                             </SelectItem>
                         })
                     }
@@ -39,4 +38,4 @@ const CategoryInput = ({ defaultValue }: { defaultValue?: string }) => {
         </div>
     )
 }
-export default CategoryInput
+export default ProvincesInput
