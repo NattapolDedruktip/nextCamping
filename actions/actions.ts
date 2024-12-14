@@ -64,6 +64,8 @@ export const createLandmarkAction = async (prevState: any, formData: FormData):P
     // const validateField = validateWithZod(profileSchema,rawData)
     console.log('rawData', rawData)
 
+    // for prisma
+
     return {message :"Create Landmark Success!"}
 
     } catch (error) {
