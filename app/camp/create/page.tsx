@@ -6,6 +6,7 @@ import { createLandmarkAction } from "@/actions/actions"
 import CategoryInput from "@/components/form/CategoryInput"
 import TextAreaInput from "@/components/form/TextAreaInput"
 import ProvincesInput from "@/components/form/ProvincesInput"
+import MapLandMark from "@/components/map/MapLandMark"
 
 
 
@@ -45,6 +46,8 @@ const CreateLandmark = async () => {
                         {/* province input */}
                         <ProvincesInput />
                     </div >
+
+                    <MapLandMark />
 
 
                     <SubmitButton text='Create Landmark' size='lg' />
