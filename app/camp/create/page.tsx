@@ -7,6 +7,7 @@ import CategoryInput from "@/components/form/CategoryInput"
 import TextAreaInput from "@/components/form/TextAreaInput"
 import ProvincesInput from "@/components/form/ProvincesInput"
 import MapLandMark from "@/components/map/MapLandMark"
+import ImageInput from "@/components/form/ImageInput"
 
 
 
@@ -33,7 +34,7 @@ const CreateLandmark = async () => {
 
                     {/* text area */}
                     <div >
-                        <TextAreaInput name="Description" />
+                        <TextAreaInput name="description" />
                     </div>
 
                     {/* price */}
@@ -46,6 +47,8 @@ const CreateLandmark = async () => {
                         {/* province input */}
                         <ProvincesInput />
                     </div >
+
+                    <ImageInput />
 
                     <MapLandMark />
 
