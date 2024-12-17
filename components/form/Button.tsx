@@ -2,7 +2,8 @@
 
 import { useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
-import { RotateCw } from 'lucide-react';
+import { Heart, RotateCw } from 'lucide-react';
+import { SignInButton } from "@clerk/nextjs";
 
 type btnSize = 'default' | 'lg' | 'sm'
 
@@ -29,4 +30,27 @@ export const SubmitButton = ({ className, size, text }: SubmitButtonProps) => {
         }
     </Button>
 
+}
+
+export const SignInCardButton = () => {
+    return <SignInButton mode="modal">
+        <Button size="icon" variant='outline'>
+            <Heart />
+        </Button>
+    </SignInButton>
+}
+
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+    // console.log('isFavorite', isFavorite)
+    const { pending } = useFormStatus()
+    return <Button
+        size='icon'
+        variant='outline'
+        type="submit">
+        {
+            pending
+                ? <RotateCw className="animate-spin" />
+                : isFavorite ? <Heart fill="black" /> : <Heart />
+        }
+    </Button>
 }

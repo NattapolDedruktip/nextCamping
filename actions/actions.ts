@@ -5,6 +5,7 @@ import { clerkClient, currentUser } from "@clerk/nextjs/server"
 import db from "@/utils/db"
 import { redirect } from "next/navigation"
 import { uploadFile } from "@/utils/supabase"
+import { revalidatePath } from "next/cache"
 
 const getAuthUser = async() => {
     const user = await currentUser()
@@ -84,9 +85,6 @@ export const createLandmarkAction = async (prevState: any, formData: FormData):P
     })
 
 
-
-
-
     // return {message :"Create Landmark Success!"}
 
     } catch (error) {
@@ -95,4 +93,67 @@ export const createLandmarkAction = async (prevState: any, formData: FormData):P
     }
     redirect('/')
     
+}
+
+export const fetchLandmarks = async () => {
+
+    //search
+
+    //get all
+    const landmarks = await db.landmark.findMany({
+        orderBy: {
+            createdAt : 'desc'
+        }
+    })
+
+    return landmarks
+}
+
+export const fetchFavoriteId = async({LandmarkId}:{LandmarkId:string})=>{
+    const user = await getAuthUser()
+    const favorite = await db.favorite.findFirst({
+        where : {
+            landmarkId:LandmarkId,
+            profileId:user.id
+        },
+        select:{
+            id:true
+        }
+    })
+
+    return favorite?.id || null
+}
+
+export const toggleFavoriteAction = async(prevState:{
+    favoriteId : string | null
+    LandmarkId : string
+    pathname : string
+}) => {
+    const {favoriteId , LandmarkId , pathname} = prevState
+    const user = await getAuthUser()
+    try {
+        // delete first if there is favorite id
+        if(favoriteId) {
+            await db.favorite.delete({
+                where : {
+                    id : favoriteId
+                }
+            })
+        }else { //create if there is no favorite id
+            await db.favorite.create({
+                data : {
+                    landmarkId : LandmarkId,
+                    profileId : user.id
+                }
+            })
+        }
+        revalidatePath(pathname) // for refreshing page
+        return {message : favoriteId 
+            ? "Remove Favorite Success!" 
+            : "Add Favorite Success!"
+        }
+    } catch (error) {
+        
+    }
+    return {message : 'Add favorite'}
 }

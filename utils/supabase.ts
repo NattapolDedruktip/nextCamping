@@ -15,10 +15,14 @@ export async function uploadFile(image : File) {
     const newName  = `CampingProject-${timeStamp}-${image.name}`
 
     //if success return data , if error return error
-  const { data, error } = await supabase.storage.from(bucket)
-  .upload(newName, image)
+  const { data, error } = await supabase.storage
+  .from(bucket)
+  .upload(newName, image , {
+    cacheControl:'3600'
+  })
   
   
+
   if(!data) throw new Error('Image upload failed!!')
 
 

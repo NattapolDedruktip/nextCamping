@@ -1,12 +1,15 @@
+import LandmarkContainer from "@/components/home/LandmarkContainer"
 import { Button } from "@/components/ui/button"
 
 
 const page = () => {
+
+  // search 
+
+
   return (
     <div>
-      <h1>page</h1>
-      <h1>Hello</h1>
-      <Button variant="outline">Button</Button>
+      <LandmarkContainer />
 
     </div>
   )
