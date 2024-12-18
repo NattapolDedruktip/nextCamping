@@ -26,7 +26,7 @@ const Hero = ({ landmarks }: { landmarks: LandmarkCardProps[] }) => {
                 className="mySwiper">
                 {
                     landmarks.map((landmark) => {
-                        return <div >
+                        return (
                             <SwiperSlide key={landmark.image} className="group">
                                 <div className="relative rounded-md overflow-hidden">
                                     <img
@@ -42,7 +42,8 @@ const Hero = ({ landmarks }: { landmarks: LandmarkCardProps[] }) => {
                                     </div>
                                 </div>
                             </SwiperSlide>
-                        </div>
+
+                        )
                     })
                 }
 
