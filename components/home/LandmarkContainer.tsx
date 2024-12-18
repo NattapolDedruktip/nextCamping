@@ -4,10 +4,10 @@ import { LandmarkCardProps } from "@/utils/types"
 import Hero from "@/app/hero/Hero"
 
 
-const LandmarkContainer = async () => {
+const LandmarkContainer = async ({ search }: { search?: string }) => {
 
-    const landmarks: LandmarkCardProps[] = await fetchLandmarks()
-    console.log('landmarks', landmarks)
+    const landmarks: LandmarkCardProps[] = await fetchLandmarks({ search })
+    // console.log('landmarks', landmarks)
     return (
         <div>
             <Hero landmarks={landmarks} />

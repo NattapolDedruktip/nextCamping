@@ -4,15 +4,16 @@ import { Button } from "@/components/ui/button"
 import { Suspense } from "react"
 
 
-const page = () => {
+const page = async ({ searchParams }: { searchParams: { search?: string } }) => {
 
   // search 
-
+  const { search } = await searchParams;
+  console.log('search', search)
 
   return (
     <section>
       <Suspense fallback={<LoadingCard />}>
-        <LandmarkContainer />
+        <LandmarkContainer search={search} />
       </Suspense>
 
     </section>

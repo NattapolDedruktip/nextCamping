@@ -12,8 +12,8 @@ const FavoriteToggleForm = ({
     LandmarkId: string
 }) => {
     const pathname = usePathname() // for refresh page
-    console.log('favoriteId', favoriteId)
-    console.log('pathname', pathname)
+    // console.log('favoriteId', favoriteId)
+    // console.log('pathname', pathname)
 
     const toggleAction = toggleFavoriteAction.bind(null, {
         favoriteId,

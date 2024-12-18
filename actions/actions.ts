@@ -95,12 +95,16 @@ export const createLandmarkAction = async (prevState: any, formData: FormData):P
     
 }
 
-export const fetchLandmarks = async () => {
+export const fetchLandmarks = async ({search=""}:{search?:string}) => {
 
-    //search
-
-    //get all
     const landmarks = await db.landmark.findMany({
+        where:{
+            OR:[
+                {name:{contains:search,mode:'insensitive'}},
+                {description:{contains:search,mode:'insensitive'}},        
+                {province:{contains:search,mode:'insensitive'}},        
+            ]
+        },
         orderBy: {
             createdAt : 'desc'
         }

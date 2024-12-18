@@ -23,7 +23,7 @@ const LandmarkCard = ({ landmark }: { landmark: LandmarkCardProps }) => {
                 <LandmarkRating />
             </div>
 
-            <p className="text-sm mt-1 text-muted-foreground">{description.substring(0, 40)}</p>
+            <p className="text-sm mt-1 text-muted-foreground">{description.substring(0, 40) + "..."}</p>
 
             <div className="mt-1 flex items-center justify-between font-semibold text-sm">
                 <p>
