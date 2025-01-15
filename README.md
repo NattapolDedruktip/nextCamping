@@ -20,6 +20,30 @@ The website is designed for users and does not require any admin management.
 
 ## Feature
 
+### Login - Register with clerk
+
+![register clerk](assets/registerClerk.gif)
+
+- By using Clerk, users can register an account easily with their Gmail or Facebook credentials.
+
+![clerk DB](assets/clerkDB.png)
+
+- All user data will be stored securely on the Clerk platform.
+
+### Create Landmark
+
+![create landmark](assets/createLandmark.gif)
+
+- Users are required to provide the name, description, price, category, and province of the landmark. Additionally, they need to mark the location of the landmark on the map.
+
+### Search
+
+### add favorite landmark
+
+### share
+
+### dark mode
+
 ## Acknowledgment
 
 This project could not have been completed without the guidance and support of **AJ Tam** and the valuable tutorials on his [รอยไถ พัฒนา](https://www.youtube.com/@roitai-dev)
