@@ -34,15 +34,37 @@ The website is designed for users and does not require any admin management.
 
 ![create landmark](assets/createLandmark.gif)
 
-- Users are required to provide the name, description, price, category, and province of the landmark. Additionally, they need to mark the location of the landmark on the map.
+- Users are required to provide the name, description, price, image ,category, and province of the landmark. Additionally, they need to mark the location of the landmark on the map.
+
+![added Landmark](assets/addedLandmark.png)
 
 ### Search
 
-### add favorite landmark
+![search](assets/search.gif)
 
-### share
+- Users can search by text, such as the name of a landmark or its province.
+- Users can also search by the category of the landmark.
+- Additionally, users can combine both text and category to perform a more specific search.
 
-### dark mode
+### Add favorited landmarks
+
+![add fav landmark](assets/fav.gif)
+
+- Users can mark landmarks as favorites, and these will be saved in the "Favorites" dropdown menu within their profile.
+
+### Share to X
+
+![share in x](assets/shareTox.gif)
+
+- Users can share their favorited landmarks on their X account, and the result will be a post containing a link to this website.But since the website is not yet deployed, the post will display a URL like "localhost:3000."
+
+![post in x](assets/x.png)
+
+### Dark mode
+
+![Dark mode](assets/darkmode.gif)
+
+- Users can toggle between dark mode and light mode
 
 ## Acknowledgment
 
